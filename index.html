@@ -660,7 +660,7 @@ function renderInsp(){
   var iEntr=d.filter(function(r){return r['Estado de la solicitud']==='Informe entregado a GS';}).length;
   var iEsp=d.filter(function(r){return r['Estado de la solicitud']==='En espera de informe';}).length;
   var iReas=d.filter(function(r){return r['Estado de la solicitud']==='Reasignada a GS';}).length;
-  var iImpl=d.filter(function(r){return r['Negociación Telconet / Cliente']==='Si';}).length;
+  var iImpl=d.filter(function(r){return (r['Negociación Telconet / Cliente']||'').toLowerCase().trim()===(r['Negociación Telconet / Cliente']||'').toLowerCase().trim()==='negociación cerrada';})).length;
   var iNeg=d.filter(function(r){
     var v=(r['Negociación Telconet / Cliente']||'').toLowerCase().trim();
     return v==='negociación cerrada'||v==='negociacion cerrada'||v==='si'||v==='sí';
@@ -672,8 +672,8 @@ function renderInsp(){
     informe:d.filter(function(r){return r['Estado de la solicitud']==='Informe entregado a GS';}),
     espera:d.filter(function(r){return r['Estado de la solicitud']==='En espera de informe';}),
     reasig:d.filter(function(r){return r['Estado de la solicitud']==='Reasignada a GS';}),
-    impl:d.filter(function(r){return r['Negociación Telconet / Cliente']==='Si';}),
-    negsi:d.filter(function(r){return r['Negociación Telconet / Cliente']==='Negociación cerrada';})
+    impl:d.filter(function(r){return (r['Negociación Telconet / Cliente']||'').toLowerCase().trim()===(r['Negociación Telconet / Cliente']||'').toLowerCase().trim()==='negociación cerrada';})),
+    negsi:d.filter(function(r){return r['Negociación Telconet / Cliente']===(r['Negociación Telconet / Cliente']||'').toLowerCase().trim()==='negociación cerrada';}))
   };
 
   function kpi(key,ttl,icon,val,sub,acc){
