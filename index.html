@@ -660,7 +660,7 @@ function renderInsp(){
   var iEntr=d.filter(function(r){return r['Estado de la solicitud']==='Informe entregado a GS';}).length;
   var iEsp=d.filter(function(r){return r['Estado de la solicitud']==='En espera de informe';}).length;
   var iReas=d.filter(function(r){return r['Estado de la solicitud']==='Reasignada a GS';}).length;
-  var iImpl=d.filter(function(r){return (r['Negociación Telconet / Cliente']||'').toLowerCase().trim()===(r['Negociación Telconet / Cliente']||'').toLowerCase().trim()==='negociación cerrada';})).length;
+  var iImpl=d.filter(function(r){return (r['Negociación Telconet / Cliente']||'').toLowerCase().trim()==='negociación cerrada';}).length;
   var iNeg=d.filter(function(r){
     var v=(r['Negociación Telconet / Cliente']||'').toLowerCase().trim();
     return v==='negociación cerrada'||v==='negociacion cerrada'||v==='si'||v==='sí';
